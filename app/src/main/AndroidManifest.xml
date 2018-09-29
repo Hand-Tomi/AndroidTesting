@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".bmicalculator.BmiMainActivity"/>
+
+        <service
+            android:name=".bmicalculator.SaveBmiService"
+            android:exported="false">
+        </service>
+
     </application>
 
 </manifest>
