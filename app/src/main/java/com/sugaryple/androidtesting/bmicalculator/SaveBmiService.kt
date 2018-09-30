@@ -18,7 +18,7 @@ class SaveBmiService : IntentService(SaveBmiService::class.java.name) {
         mLocalBroadcastManager = LocalBroadcastManager.getInstance(applicationContext)
     }
 
-    override fun onHandleIntent(intent: Intent?) {
+    public override fun onHandleIntent(intent: Intent?) {
         if (intent == null) {
             return
         }
@@ -64,7 +64,7 @@ class SaveBmiService : IntentService(SaveBmiService::class.java.name) {
         val ACTION_RESULT = SaveBmiService::class.java.name + ".ACTION_RESULT"
         const val PARAM_RESULT = "param_result"
 
-        private const val PARAM_KEY_BMI_VALUE = "bmi_value"
+        const val PARAM_KEY_BMI_VALUE = "bmi_value"
 
         fun start(context: Context, bmiValue: BmiValue) {
             val intent = Intent(context, SaveBmiService::class.java)
