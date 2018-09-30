@@ -37,13 +37,13 @@ class BmiValue(private val mValue: Float) : Serializable {
         private const val serialVersionUID = -4325336659053219895L
 
         @VisibleForTesting
-        private val THIN = "痩せ"
+        val THIN = "痩せ"
         @VisibleForTesting
-        private val NORMAL = "普通"
+        val NORMAL = "普通"
         @VisibleForTesting
-        private val OBESITY = "肥満（１度）"
+        val OBESITY = "肥満（１度）"
         @VisibleForTesting
-        private val VERY_OBESITY = "肥満（２度）"
+        val VERY_OBESITY = "肥満（２度）"
     }
 
 }

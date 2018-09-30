@@ -22,7 +22,7 @@ class BmiCalculator {
     }
 
     @VisibleForTesting
-    private fun createValueObj(bmiValue: Float): BmiValue {
+    fun createValueObj(bmiValue: Float): BmiValue {
         return BmiValue(bmiValue)
     }
 

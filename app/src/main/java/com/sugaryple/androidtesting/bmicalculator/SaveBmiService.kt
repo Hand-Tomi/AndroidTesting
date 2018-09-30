@@ -33,7 +33,7 @@ class SaveBmiService : IntentService(SaveBmiService::class.java.name) {
     }
 
     @VisibleForTesting
-    private fun saveToRemoteServer(bmiValue: BmiValue): Boolean {
+    fun saveToRemoteServer(bmiValue: BmiValue): Boolean {
         try {
             Thread.sleep((3000 + Random().nextInt(2000)).toLong())
         } catch (e: InterruptedException) {
@@ -48,14 +48,14 @@ class SaveBmiService : IntentService(SaveBmiService::class.java.name) {
     }
 
     @VisibleForTesting
-    private fun sendLocalBroadcast(result: Boolean) {
+    fun sendLocalBroadcast(result: Boolean) {
         val resultIntent = Intent(ACTION_RESULT)
         resultIntent.putExtra(PARAM_RESULT, result)
         mLocalBroadcastManager.sendBroadcast(resultIntent)
     }
 
     @VisibleForTesting
-    private fun setLocalBroadcastManager(manager: LocalBroadcastManager) {
+    fun setLocalBroadcastManager(manager: LocalBroadcastManager) {
         mLocalBroadcastManager = manager
     }
 

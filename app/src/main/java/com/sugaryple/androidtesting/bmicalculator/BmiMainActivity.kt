@@ -32,7 +32,7 @@ class BmiMainActivity : AppCompatActivity() {
     }
 
     @VisibleForTesting
-    private fun initViews() {
+    fun initViews() {
         val weightText = findViewById<View>(R.id.text_weight) as EditText
         val heightText = findViewById<View>(R.id.text_height) as EditText
         val resultText = findViewById<View>(R.id.text_result) as TextView
@@ -44,7 +44,7 @@ class BmiMainActivity : AppCompatActivity() {
     }
 
     @VisibleForTesting
-    private fun createButtonListener(weightText: TextView,
+    fun createButtonListener(weightText: TextView,
                                       heightText: TextView,
                                       resultText: TextView): View.OnClickListener {
         return View.OnClickListener {
@@ -59,7 +59,7 @@ class BmiMainActivity : AppCompatActivity() {
     }
 
     @VisibleForTesting
-    private fun calculateBmiValue(weightText: TextView, heightText: TextView): BmiValue {
+    fun calculateBmiValue(weightText: TextView, heightText: TextView): BmiValue {
         val weight = weightText.text.toString().toFloat()
         val height = heightText.text.toString().toFloat()
         val calculator = BmiCalculator()
@@ -67,20 +67,20 @@ class BmiMainActivity : AppCompatActivity() {
     }
 
     @VisibleForTesting
-    private fun showCalcResult(resultText: TextView, result: BmiValue) {
+    fun showCalcResult(resultText: TextView, result: BmiValue) {
         val message = "${result.toFloat()} : ${result.message}体型です"
         resultText.text = message
     }
 
     @VisibleForTesting
-    private fun startResultSaveService(result: BmiValue) {
+    fun startResultSaveService(result: BmiValue) {
         mCalcButton.text = "保存中です..."
         mCalcButton.isEnabled = false
         SaveBmiService.start(this@BmiMainActivity, result)
     }
 
     @VisibleForTesting
-    private fun prepareReceiveResultSaveServiceAction() {
+    fun prepareReceiveResultSaveServiceAction() {
         val filter = IntentFilter(SaveBmiService.ACTION_RESULT)
         mReceiver = BmiSaveResultReceiver(mCalcButton).also {
             mLocalBroadcastManager.registerReceiver(it, filter)
@@ -95,7 +95,7 @@ class BmiMainActivity : AppCompatActivity() {
     }
 
     @VisibleForTesting
-    internal class BmiSaveResultReceiver(private val mCalcButton: Button) : BroadcastReceiver() {
+    class BmiSaveResultReceiver(private val mCalcButton: Button) : BroadcastReceiver() {
 
         override fun onReceive(context: Context, intent: Intent?) {
             if (intent == null) {
